@@ -5,6 +5,19 @@
   color: #ffffff;
   /* overflow-x: hidden; */
 }
+/* Hide scroll bars but keep scrolling */
+html, body {
+    overflow: scroll;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: auto;   /* Allow vertical scrolling */
+}
+
+/* For Webkit browsers */
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent; /* Optional: hide scrollbar background */
+}
+
 :root {
     --black: #141414;
   --white:#ffffff;
@@ -42,7 +55,7 @@ main{
     width: 40px;
 }
 .mahi-image {
-    /* background: url(assets/Mahi.png); */
+    background: url(assets/Mahi.png);
     height: 200px;
     width: 200px;
     border-radius: 100%;
