@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: "montserrat", sans-serif;
+}
+:root {
+    --black: #141414;
+  --white:#ffffff;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    background-color: #141414;
+}
+main {
+
+    padding: 20px;
+    border-radius: 8px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.homeImg img{
+    width: 250px;
+}
+.homeImg, .btnsection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnsection button {
+    border: none;
+    border-radius: 30px;
+    background-color: #bbff00;
+    font-size: larger;
+    padding: 10px 120px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "poppins", sans-serif;
+}
+.infoSection{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+@media screen and (min-width:320px) {
+    main {
+    /* border: 2px solid white; */
+    padding: 20px;
+    border-radius: 8px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.btnsection button {
+        border: none;
+        border-radius: 30px;
+        background-color: #bbff00;
+        font-size: larger;
+        padding: 10px 69px;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: "poppins", sans-serif;
+    }
+.ctaTxt{
+    font-size: small;
+}
+}
+
+@media screen and (min-width:376px) {
+    main {
+    /* border: 2px solid white; */
+    padding: 20px;
+    border-radius: 8px;
+    width: 97vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.btnsection button {
+    border: none;
+    border-radius: 30px;
+    background-color: #bbff00;
+    font-size: larger;
+    padding: 10px 95px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "poppins", sans-serif;
+}
+}
+@media screen and (min-width:768px) {
+    main {
+        /* border: 2px solid white; */
+        padding: 20px;
+        border-radius: 8px;
+        width: 47vw;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+
+
+@media screen and (min-width:1024px) {
+    main {
+        /* border: 2px solid white; */
+        padding: 20px;
+        border-radius: 8px;
+        width: 45vw;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+@media screen and (min-width:1440px) {
+    main {
+        /* border: 2px solid white; */
+        padding: 20px;
+        border-radius: 8px;
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+    </style>
+    <title>MahiFy - Presonalised App For Mahi</title>
+</head>
+
+<body>
+    <main>
+       <div class="infoSection">
+        <h2 class="wlecomeTxt">Welcome, Dummy</h2>
+        <div class="ctaTxt">Explore Your Presonalised Features easily</div>
+       </div>
+       <section class="homeImg">
+
+           <img src="/assets/girlbgremoved.png" class="mainImg" alt="">
+        </section>
+        <section class="btnsection"><button onclick="main()">Get Started</button></section>
+    </main>
+   <!-- Fixes -->
+</body>
+<script>
+    function main() {
+         window.location.href="./main"
+    }
+</script>
+</html>

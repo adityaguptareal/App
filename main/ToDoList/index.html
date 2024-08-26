@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+            color: rgb(243, 117, 0);
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: rgb(14, 14, 14);
+            background: linear-gradient(90deg, rgba(14, 14, 14, 1) 0%, rgba(25, 25, 25, 1) 71%, rgba(31, 31, 31, 1) 100%);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            margin: 50px 0px;
+
+        }
+
+        .main {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 800px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 70%;
+        }
+
+
+
+        .heading {
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .header {
+            display: flex;
+            column-gap: 7px;
+        }
+
+        .header img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .headingSubtext {
+            color: rgb(39, 39, 39);
+            font-weight: 700;
+            margin-top: -10px;
+        }
+
+        .todoInput {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            /* padding: 20px 22px; */
+            border-radius: 30px;
+            align-items: center;
+            padding-left: 20px;
+            background-color: rgb(221, 221, 221);
+            margin: 23px 0px;
+        }
+
+        .pencil {
+            display: none;
+            color: white;
+
+        }
+
+        input {
+            flex: 1;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            font-size: 18px;
+            color: rgb(36, 36, 36);
+            padding: 10px;
+        }
+
+
+        .todoInput button {
+            background-color: #f37500;
+            color: white;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 15px;
+            border-radius: 40px;
+        }
+
+        ul li {
+            list-style: none;
+            font-size: 17px;
+            padding: 4px 40px;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
+            color: rgb(36, 36, 36);
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: url(radio.png);
+            background-size: contain;
+            top: 5px;
+            left: 0px;
+            margin-left: 5px;
+        }
+
+        ul li.checked {
+            color: #292929a1;
+            text-decoration: line-through;
+        }
+
+        ul li.checked::before {
+            background: url(check.png);
+            background-size: contain;
+        }
+
+        ul li span {
+            position: absolute;
+            right: 0;
+            top: 5px;
+            width: 40px;
+            height: 40px;
+            font-size: 22px;
+            color: #555;
+            line-height: 40px;
+            text-align: center;
+
+        }
+
+        button span,
+        li {
+            color: white;
+        }
+
+        ul li span:hover {
+            cursor: pointer;
+            background-color: rgb(183, 183, 183);
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+
+            /* Width of the entire scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            /* Background of the scrollbar track */
+            border-radius: 10px;
+            /* Rounded corners on the track */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #f37500;
+            height: 50px;
+            /* Color of the scrollbar thumb */
+            border-radius: 10px;
+            /* Rounded corners on the thumb */
+            border: 3px solid #f1f1f1;
+            /* Padding around the thumb */
+        }
+
+        @media screen and (max-width:570px) {
+            .main {
+                background-color: white;
+                border-radius: 10px;
+                padding: 20px;
+                width: 100%;
+                max-width: 80vw;
+                max-height: 800px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: 70%;
+            }
+
+            input {
+                flex: 1;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 18px;
+                color: rgb(36, 36, 36);
+                padding: 0px;
+            }
+
+            .todoInput button {
+                background-color: #f37500;
+                color: white;
+                font-weight: 600;
+                border: none;
+                cursor: pointer;
+                padding: 5px;
+                font-size: 13px;
+                border-radius: 40px;
+            }
+        }
+
+        @media screen and (max-width:376px) {
+            .heading {
+                font-size: 35px;
+                font-weight: 800;
+            }
+
+            .headingSubtext {
+                color: rgb(39, 39, 39);
+                font-weight: 700;
+                margin-top: -10px;
+                font-size: 14px;
+            }
+
+            input {
+                flex: 1;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                color: rgb(36, 36, 36);
+                padding: 0px;
+            }
+
+            .heading {
+                font-size: 32px;
+                font-weight: 800;
+            }
+
+            .headingSubtext {
+                color: rgb(39, 39, 39);
+                font-weight: 700;
+                margin-top: -10px;
+                font-size: 11px;
+            }
+
+            .header img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media screen and (max-width:426px) {
+            .pencil {
+                display: block;
+                color: white;
+                font-size: 20px;
+                padding: 10px 10px 10px 10px;
+            }
+
+            span.TaskBtn {
+                display: none;
+
+            }
+
+            .main {
+                background-color: white;
+                border-radius: 10px;
+                padding: 20px;
+                width: 100%;
+                max-width: 80vw;
+                max-height: 70vh;
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: 70%;
+            }
+            ul li {
+    list-style: none;
+    font-size: 14px;
+    padding: 4px 40px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    color: rgb(36, 36, 36);
+}
+        }
+
+        @media screen and (max-width:320px) {
+            .heading {
+        font-size: 27px;
+        font-weight: 800;
+    }
+
+                input {
+                    flex: 1;
+                    outline: none;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 12px;
+                    color: rgb(36, 36, 36);
+                    padding: 0px;
+                }
+            }
+        
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <div class="header">
+            <div class="textHeader">
+                <div class="heading">To Do List</div>
+                <div class="headingSubtext">You Own To Do List App</div>
+            </div>
+            <img src="todoicon.webp" alt="" />
+        </div>
+        <div class="todoInput">
+            <input type="text" id="input-box" placeholder="Add Your Task" />
+            <button onclick="Task()" class="addBtn">
+                <i class="fa fa-pencil-square pencil" aria-hidden="true"></i><span class="TaskBtn">Add Task</span>
+            </button>
+        </div>
+        <ul id="listContainer">
+            <!-- <li class="checked">Task 1</li>
+            <li>Task 2</li>
+            <li>Task 3</li> -->
+        </ul>
+    </section>
+</body>
+<script>
+    const inputBox = document.getElementById("input-box");
+    const listContainer = document.getElementById("listContainer");
+
+    function Task() {
+        if (inputBox.value.trim() === "") {
+            alert("You have to write something!");
+        } else {
+            let li = document.createElement("li");
+            li.innerHTML = inputBox.value;
+            listContainer.appendChild(li);
+            let span = document.createElement("span");
+            span.innerHTML = "\u00d7";
+            li.appendChild(span);
+            attachEventListeners(li); // Attach event listeners to the new task
+        }
+
+        inputBox.value = "";
+        saveData();
+    }
+
+    function attachEventListeners(li) {
+        li.addEventListener("click", (e) => {
+            if (e.target.tagName === "LI") {
+                e.target.classList.toggle("checked");
+                saveData();
+            } else if (e.target.tagName === "SPAN") {
+                e.target.parentElement.remove();
+                saveData();
+            }
+        });
+    }
+
+    function saveData() {
+        localStorage.setItem("data", listContainer.innerHTML);
+    }
+
+    function showData() {
+        listContainer.innerHTML = localStorage.getItem("data") || "";
+        let tasks = listContainer.getElementsByTagName("li");
+        for (let task of tasks) {
+            attachEventListeners(task); // Attach event listeners to each task
+        }
+    }
+
+    showData();
+</script>
+
+</html>
